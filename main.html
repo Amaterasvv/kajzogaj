@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pekara Kajzogaj – tradicionalni okusi, svježe pecivo i kruh iz srca domaće kuhinje.">
+<meta name="keywords" content="pekara, kruh, pecivo, kolači, Kajzogaj, mlinci, domaća hrana">
+<meta name="author" content="Pekara Kajzogaj">
+
+  <title>Pekara Kajzogaj</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigacija -->
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="#ponuda">Ponuda</a>
+      <a href="#onama">O nama</a>
+    </div>
+
+    <div class="nav-logo">
+      <img src="pics/logo_1-removebg-preview.png" alt="Pekara Kajzogaj Logo" />
+    </div>
+
+    <div class="nav-right">
+      <a href="#akcije">Akcije</a>
+      <a href="#lokacije">Lokacije</a>
+    </div>
+  </header>
+
+<section id="onama" class="cao-cao animate-fade-in">
+  <div class="cao-cao-wrapper">
+    
+   <div class="cao-cao-text">
+  <h1>PEKARA<br>KAJZOGAJ</h1>
+  <h2>Tradicionalni okusi, s ljubavlju pripremljeni</h2>
+  <p>Dobrodošli u Pekaru Kajzogaj – mjesto gdje se miris svježeg kruha osjeti već pri samom ulasku. Svaki naš proizvod nastaje iz pažljivo biranih sastojaka i dugogodišnje tradicije.</p>
+  <p>Od prvog zalogaja osjetit ćete razliku – jer mi ne radimo samo kruh, već stvaramo osjećaj domaće topline i autentičnih okusa koje pamtimo iz djetinjstva.</p>
+</div>
+
+
+    <div class="cao-cao-image">
+      <img src="pics/delicious-white-whole-grain-bread-basket-removebg-preview.png" alt="Cao Cao slavi">
+    </div>
+
+  </div>
+</section>
+
+
+<section class="hero animate-fade-in">
+  <div class="hero-img"></div>
+  <div class="hero-text">
+    <h1>KUKURUZNI KRUH</h1>
+    <p>Hrskava korica, zlatna boja i bogat miris kukuruza – naš kukuruzni kruh peče se svako jutro s pažnjom i znanjem prenesenim generacijama. Savršen uz sir, vrhnje ili kao dodatak svakom toplom obroku.</p>
+  </div>
+</section>
+
+
+<section id="ponuda" class="kategorije animate-fade-in">
+  <div class="kategorije-lista">
+    <div id="marker"></div>
+ <button onclick="prikaziKategoriju('kruh')">KRUH</button>
+  <button onclick="prikaziKategoriju('peciva')">PECIVA</button>
+  <button onclick="prikaziKategoriju('burek')">BUREK</button>
+  <button onclick="prikaziKategoriju('sendvici')">SENDVIČI</button>
+  <button onclick="prikaziKategoriju('slatko')">SLATKO</button>
+  <button onclick="prikaziKategoriju('kebab')">KEBAB</button>
+  </div>
+
+  <div class="kategorije-sadrzaj" id="kategorija">
+    <!-- Dinamički sadržaj -->
+  </div>
+</section>
+
+
+
+
+<section class="galerija animate-fade-in">
+  <h2>Upečatljivi trenuci iz naše pekare</h2>
+<div class="galerija-grid" id="galerija-slider">
+  <div class="galerija-item"><img src="pics/galerija1.jpg" alt="..." onclick="otvoriLightbox(this.src)"></div>
+  <div class="galerija-item"><img src="pics/galerija2.jpg" alt="..." onclick="otvoriLightbox(this.src)"></div>
+  <div class="galerija-item"><img src="pics/galerija3.jpg" alt="..." onclick="otvoriLightbox(this.src)"></div>
+  <div class="galerija-item"><img src="pics/galerija4.jpg" alt="..." onclick="otvoriLightbox(this.src)"></div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="zatvoriLightbox()">
+  <img id="lightbox-img" src="" alt="Galerijska slika">
+</div>
+
+</section>
+
+
+<section id="akcije" class="akcije animate-fade-in">
+  <h2>Trenutne Akcije</h2>
+  <div class="akcije-lista">
+    <div class="akcija-kartica">
+      <img src="pics/kifla.jpg" alt="Kifla akcija">
+      <h3>Kifle sezam</h3>
+      <p>0,99 € – danas do isteka zaliha!</p>
+    </div>
+    <div class="akcija-kartica">
+      <img src="pics/sir.jpg" alt="Pita sirnica u promociji - Pekara Kajzogaj">
+      <h3>Pita sirnica</h3>
+      <p>Popust 20% na sve pite do nedjelje!</p>
+    </div>
+    <div class="akcija-kartica">
+      <img src="pics/cornkruh.jpg" alt="Kukuruzni kruh s popustom">
+      <h3>Kukuruzni kruh</h3>
+      <p>1,20 € – vikend akcija!</p>
+    </div>
+    <div class="akcija-kartica">
+      <img src="pics/buhtla.jpg" alt="Buhtla s čokoladom - akcija">
+      <h3>Buhtle s čokoladom</h3>
+      <p>3 za 2! Iskoristi do petka.</p>
+    </div>
+    <div class="akcija-kartica">
+      <img src="pics/bauget.jpg" alt="Bageta akcijska cijena">
+      <h3>Bageta rustikalna</h3>
+      <p>Samo 0,89 € – svaki dan od 17h!</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="preporuka animate-fade-in">
+  <h2>Naša Preporuka</h2>
+  <div class="preporuka-grid">
+    <div class="preporuka-kartica">
+      <img src="pics/kruhsjemenke.png" alt="Kruh sa sjemenkama">
+      <div class="preporuka-tekst">
+        <h3>Kruh sa sjemenkama</h3>
+        <p>Rustikalni kruh sa sezamom, lanom i suncokretom. Bogat vlaknima i savršen za zdrav doručak.</p>
+      </div>
+    </div>
+   <div class="preporuka-kartica">
+  <img src="pics/lisnato.png" alt="Lisnato sa sirom - Pekara Kajzogaj">
+  <div class="preporuka-tekst">
+    <h3>Lisnato sa sirom</h3>
+    <p>Hrskavo lisnato punjeno domaćim svježim sirom. Savršeno za doručak ili međuobrok!</p>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<section id="lokacije" class="lokacije animate-fade-in">
+  <h2>Gdje nas možete pronaći</h2>
+  <div class="lokacije-wrapper">
+    <div class="lokacije-karta">
+      <div class="lokacije-karta">
+  <div class="mapa">
+   <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26640.50562614919!2d17.17144608167929!3d45.42469923565203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476773f6717ca9fb%3A0x3dbe4c86e7fd090e!2sPakrac!5e0!3m2!1shr!2shr!4v1753592846451!5m2!1shr!2shr" 
+        width="100%" height="100%" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+  </div>
+</div>
+   
+    </div>
+    <div class="lokacije-popis">
+      <div class="lokacija-kartica">
+        <h3>Glavna pekara</h3>
+        <p>Ulica hrvatskih velikana 6</p>
+      </div>
+      <div class="lokacija-kartica">
+        <h3>Pekara Lipik</h3>
+        <p>Udinska Ulica 11</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tekst-u-krugu">
+  <svg viewBox="0 0 200 200" width="200" height="200">
+    <defs>
+      <path id="krug-putanja" d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0" />
+    </defs>
+    <text>
+      <textPath href="#krug-putanja" startOffset="0%">
+        PEKARA KAJZOGAJ • PEKARA KAJZOGAJ • 
+      </textPath>
+    </text>
+  </svg>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>O nama</h3>
+      <p>Pečemo s ljubavlju – domaći proizvodi, svježi svaki dan.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Kontakt</h3>
+      <p>Telefon: +385 91 123 4567<br>
+      Email: minipekarakaj@gmail.hr</p>
+    </div>
+    <div class="footer-section">
+      <h3>Lokacija</h3>
+      <p>HRVATSKIH VELIKANA 6<br>Pakrac, Hrvatska</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Pekara Domaće Dobrote. Sva prava pridržana.</p>
+  </div>
+</footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
