@@ -431,6 +431,43 @@ html {
 @media (prefers-reduced-motion: reduce){
   .reveal,.tl-card{ transition:none !important; transform:none !important; }
 }
+/* === O NAMA: anti-overflow patch (drop-in) === */
+#o-nama, #o-nama * { box-sizing: border-box; }
+
+/* Grid i djeca smiju se stisnuti (bez min-content širenja) */
+#o-nama .timeline-center,
+#o-nama .tl-item,
+#o-nama .tl-item > *,
+#o-nama .tl-card { min-width: 0; }
+
+/* Dugačke riječi/dupli razmaci neće gurati layout */
+#o-nama .tl-card h3,
+#o-nama .tl-card p { overflow-wrap: anywhere; hyphens: auto; }
+
+/* Slike neka nikad ne “pobjegnu” */
+#o-nama .tl-card img { display:block; max-width:100%; height:auto; }
+
+/* Glow dekor ponekad izazove scroll na starijim Safari-ima → sakrij X overflow */
+#o-nama.about-dark.decor { overflow-x: hidden; }
+@supports (overflow: clip) {
+  #o-nama.about-dark.decor { overflow: clip; } /* koristi clip gdje je podržano */
+}
+
+/* Os (vertikalna linija) – sigurnije pozicioniranje na mobitelu */
+@media (max-width: 720px){
+  #o-nama .timeline-center { padding-inline: 0; }
+  #o-nama .timeline-center::before { left: 12px; right: auto; margin: 0; width: 3px; }
+  #o-nama .tl-item { grid-template-columns: 56px 1fr; gap: 12px; }
+  #o-nama .tl-year { width: 52px; height: 52px; font-size: .85rem; }
+  #o-nama .tl-card { padding: 16px; border-radius: 14px; }
+}
+
+/* Sitni uređaji: još mrvu kompaktnije */
+@media (max-width: 480px){
+  #o-nama { padding: 70px 14px; }
+  #o-nama .about-header { margin-bottom: 36px; }
+  #o-nama .tl-card h3 { font-size: 1.06rem; }
+}
 
 
 /* ========== Naša ponuda ========== */
@@ -803,6 +840,55 @@ html {
 @media (max-width: 980px){
   .contact-grid{ grid-template-columns:1fr; }
   .form-row{ grid-template-columns:1fr; }
+}
+/* === CONTACT: mobile overflow fix (drop-in) === */
+
+/* 1) Koristi border-box unutar sekcije da 100% uključuje padding/border */
+#kontakt, #kontakt * { box-sizing: border-box; }
+
+/* 2) Grid itemi smiju stisnuti sadržaj (sprječava horizontalni scroll) */
+#kontakt .contact-grid > * { min-width: 0; }
+
+/* 3) Form kontrole zauzimaju kolonu bez probijanja */
+#kontakt .form-group input,
+#kontakt .form-group select,
+#kontakt .form-group textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* iOS/Safari ponekad širi file input zbog naziva datoteke */
+#kontakt input[type="file"] { max-width: 100%; }
+
+/* Gumb 100% bez preljeva */
+#kontakt .btn-full { width: 100%; }
+
+/* Dugačke riječi/napomene neće gurati layout */
+#kontakt .lead,
+#kontakt .form-note,
+#kontakt label {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* 4) Tjuniranje razmaka na manjim širinama */
+@media (max-width: 980px){
+  #kontakt.contact-section { padding: 56px 16px; }         /* manji bočni padding */
+  #kontakt .contact-grid { grid-template-columns: 1fr; gap: 20px; }
+  #kontakt .form-row { grid-template-columns: 1fr; gap: 12px; }
+}
+
+/* Dodatni micro-tune za veoma uske ekrane */
+@media (max-width: 420px){
+  #kontakt .contact-form h2 { font-size: 1.6rem; }
+  #kontakt .kpi { gap: 8px; }
+  #kontakt .kpi-badge { flex: 1 1 130px; padding: 12px; }
+}
+
+/* Ako je browser podržava, izreži X-scroll bez da sakriješ Y */
+@supports (overflow: clip){
+  #kontakt { overflow-x: clip; }
 }
 
 
