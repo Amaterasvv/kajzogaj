@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   // Oznaci da je JS aktivan (za CSS .js selektore)
   document.documentElement.classList.add('js');
 
@@ -11,6 +12,13 @@
       toggle.setAttribute('aria-expanded', 'false');
     }
   };
+=======
+function toggleMenu() {
+  document.querySelector('.nav-left').classList.toggle('active');
+  document.querySelector('.nav-right').classList.toggle('active');
+  document.querySelector('.menu-toggle').classList.toggle('open');
+}
+>>>>>>> 382356673992ea99bb834768d8d65e7f523cf40d
 
   // Toggle otvaranje/zatvaranje
   toggle.addEventListener('click', (e) => {
