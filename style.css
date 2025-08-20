@@ -1268,3 +1268,38 @@ html {
   .kb-cat-card--tile .kb-cat-icon{ position:relative; top:auto; left:auto; margin-bottom:8px; }
   .kb-cat-content{ padding-left:0; }
 }
+/* === GLOBAL BASE RESET (fix bijelih rubova) === */
+html, body { margin: 0; padding: 0; }
+* { box-sizing: border-box; }
+
+/* Boja pozadine stranice (da rubovi nisu bijeli ni u flashu) */
+body { background: #0f0f10; color: #eaeaea; }
+
+/* Nikad ne probij slike/medije */
+img, svg, video, iframe { display:block; max-width:100%; height:auto; }
+
+/* Ukloni default ul margin/padding (npr. u navu/foot.) */
+ul { margin: 0; padding-left: 0; }
+.nav__list, .footer-grid ul, .hours-list { list-style: none; }
+
+/* Sigurnosno: spriječi horizontalni scroll od dekoracija/100vw */
+body { overflow-x: hidden; }
+@supports (overflow: clip) { body { overflow-x: clip; } }
+
+/* Map iframe širina 100% i na mobitelu visina manja */
+.loc-section iframe { width: 100% !important; max-width: 100%; height: 340px; }
+
+/* Hero/sekcije koje su možda rađene s 100vw → koristi 100% */
+.hero, .site-header, .site-footer,
+.about-dark, .offer-section, .today-strip,
+.values-section, .stats-banner, .kb-cat-section,
+.process-section, .loc-section, .hello-section, .contact-section {
+  width: 100%;
+}
+
+/* Gridovi: dozvoli stiskanje sadržaja (min-width bug) */
+.timeline-center, .tl-item, .tl-card,
+.contact-grid > *, .offer-grid > *, .today-grid > *,
+.values-icons > *, .kb-cat-grid > * {
+  min-width: 0;
+}
