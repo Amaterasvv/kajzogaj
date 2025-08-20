@@ -7,217 +7,735 @@
 <meta name="keywords" content="pekara, kruh, pecivo, kolači, Kajzogaj, mlinci, domaća hrana">
 <meta name="author" content="Pekara Kajzogaj">
 
-  <title>Pekara Kajzogaj</title>
+  <title>Mini Pekara</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+<div id="top"></div>
 
-<header class="navbar">
-  <div class="nav-left">
-    <a href="#ponuda">Ponuda</a>
-    <a href="#onama">O nama</a>
-  </div>
 
-  <div class="nav-logo">
-    <img src="pics/galerija3.png" alt="Pekara Kajzogaj Logo" />
-  </div>
+<header class="site-header">
+  <nav class="nav" aria-label="Glavna navigacija">
+    <a href="#top" class="nav__logo">
+      <img src="pics/LOOGO.svg" alt="Pekara Kajzogaj" width="160" height="64" />
+    </a>
 
-  <button class="menu-toggle" onclick="toggleMenu()">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
+    <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu">
+   
+      <span class="nav__bar"></span>
+      <span class="nav__bar"></span>
+      <span class="nav__bar"></span>
+    </button>
 
-  <div class="nav-right">
-    <a href="#akcije">Akcije</a>
-    <a href="#lokacije">Lokacije</a>
-  </div>
+<ul id="nav-menu" class="nav__list">
+  <li><a href="#ponuda">Ponuda</a></li>
+  <li><a href="#o-nama">O nama</a></li>
+  <li><a href="#istaknuto">Istaknuto</a></li>
+  <li><a href="#lokacija">Lokacija</a></li>
+</ul>
+
+  </nav>
 </header>
 
 
+<section class="hero">
+  <!-- Pozadina -->
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
 
-<section id="onama" class="cao-cao animate-fade-in">
-  <div class="cao-cao-wrapper">
-    
-   <div class="cao-cao-text">
-  <h1>PEKARA<br>KAJZOGAJ</h1>
-  <h2>Tradicionalni okusi, s ljubavlju pripremljeni</h2>
-  <p>Dobrodošli u Pekaru Kajzogaj – mjesto gdje se miris svježeg kruha osjeti već pri samom ulasku. Svaki naš proizvod nastaje iz pažljivo biranih sastojaka i dugogodišnje tradicije.</p>
-  <p>Od prvog zalogaja osjetit ćete razliku – jer mi ne radimo samo kruh, već stvaramo osjećaj domaće topline i autentičnih okusa koje pamtimo iz djetinjstva.</p>
-</div>
-
-
-    <div class="cao-cao-image">
-      <img src="pics/delicious-white-whole-grain-bread-basket-removebg-preview.png" alt="Cao Cao slavi">
-    </div>
-
-  </div>
-</section>
-
-
-<section class="hero animate-fade-in">
-  <div class="hero-img"></div>
-  <div class="hero-text">
-    <h1>KUKURUZNI KRUH</h1>
-    <p>Hrskava korica, zlatna boja i bogat miris kukuruza – naš kukuruzni kruh peče se svako jutro s pažnjom i znanjem prenesenim generacijama. Savršen uz sir, vrhnje ili kao dodatak svakom toplom obroku.</p>
-  </div>
-</section>
-
-
-<section id="ponuda" class="kategorije animate-fade-in">
-  <div class="kategorije-lista">
-    <div id="marker"></div>
- <button onclick="prikaziKategoriju('kruh')">KRUH</button>
-  <button onclick="prikaziKategoriju('peciva')">PECIVA</button>
-  <button onclick="prikaziKategoriju('burek')">BUREK</button>
-  <button onclick="prikaziKategoriju('sendvici')">SENDVIČI</button>
-  <button onclick="prikaziKategoriju('slatko')">SLATKO</button>
-  <button onclick="prikaziKategoriju('kebab')">KEBAB</button>
-  </div>
-
-  <div class="kategorije-sadrzaj" id="kategorija">
-  </div>
-</section>
-
-
-
-
-<section class="galerija animate-fade-in">
-  <h2>Upečatljivi trenuci iz naše pekare</h2>
-<div class="galerija-grid" id="galerija-slider">
-  <div class="galerija-item"><img src="pics/galerija1.jpg" alt="..." onclick="otvoriLightbox(this.src)"></div>
-  <div class="galerija-item"><img src="pics/galerija2.jpg" alt="..." onclick="otvoriLightbox(this.src)"></div>
-  <div class="galerija-item"><img src="pics/galerija3.jpg" alt="..." onclick="otvoriLightbox(this.src)"></div>
-  <div class="galerija-item"><img src="pics/galerija4.jpg" alt="..." onclick="otvoriLightbox(this.src)"></div>
-</div>
-
-<div id="lightbox" class="lightbox" onclick="zatvoriLightbox()">
-  <img id="lightbox-img" src="" alt="Galerijska slika">
-</div>
-
-</section>
-
-
-<section id="akcije" class="akcije animate-fade-in">
-  <h2>Trenutne Akcije</h2>
-  <div class="akcije-lista">
-    <div class="akcija-kartica">
-      <img src="pics/kifla.jpg" alt="Kifla akcija">
-      <h3>Kifle sezam</h3>
-      <p>0,99 € – danas do isteka zaliha!</p>
-    </div>
-    <div class="akcija-kartica">
-      <img src="pics/sir.jpg" alt="Pita sirnica u promociji - Pekara Kajzogaj">
-      <h3>Pita sirnica</h3>
-      <p>Popust 20% na sve pite do nedjelje!</p>
-    </div>
-    <div class="akcija-kartica">
-      <img src="pics/cornkruh.jpg" alt="Kukuruzni kruh s popustom">
-      <h3>Kukuruzni kruh</h3>
-      <p>1,20 € – vikend akcija!</p>
-    </div>
-    <div class="akcija-kartica">
-      <img src="pics/buhtla.jpg" alt="Buhtla s čokoladom - akcija">
-      <h3>Buhtle s čokoladom</h3>
-      <p>3 za 2! Iskoristi do petka.</p>
-    </div>
-    <div class="akcija-kartica">
-      <img src="pics/bauget.jpg" alt="Bageta akcijska cijena">
-      <h3>Bageta rustikalna</h3>
-      <p>Samo 0,89 € – svaki dan od 17h!</p>
-    </div>
-  </div>
-</section>
-
-
-<section class="preporuka animate-fade-in">
-  <h2>Naša Preporuka</h2>
-  <div class="preporuka-grid">
-    <div class="preporuka-kartica">
-      <img src="pics/kruhsjemenke.png" alt="Kruh sa sjemenkama">
-      <div class="preporuka-tekst">
-        <h3>Kruh sa sjemenkama</h3>
-        <p>Rustikalni kruh sa sezamom, lanom i suncokretom. Bogat vlaknima i savršen za zdrav doručak.</p>
-      </div>
-    </div>
-   <div class="preporuka-kartica">
-  <img src="pics/lisnato.png" alt="Lisnato sa sirom - Pekara Kajzogaj">
-  <div class="preporuka-tekst">
-    <h3>Lisnato sa sirom</h3>
-    <p>Hrskavo lisnato punjeno domaćim svježim sirom. Savršeno za doručak ili međuobrok!</p>
-  </div>
-</div>
-
-  </div>
-</section>
-
-<section id="lokacije" class="lokacije animate-fade-in">
-  <h2>Gdje nas možete pronaći</h2>
-  <div class="lokacije-wrapper">
-    <div class="lokacije-karta">
-      <div class="lokacije-karta">
-  <div class="mapa">
-   <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26640.50562614919!2d17.17144608167929!3d45.42469923565203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476773f6717ca9fb%3A0x3dbe4c86e7fd090e!2sPakrac!5e0!3m2!1shr!2shr!4v1753592846451!5m2!1shr!2shr" 
-        width="100%" height="100%" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-
-  </div>
-</div>
-   
-    </div>
-    <div class="lokacije-popis">
-      <div class="lokacija-kartica">
-        <h3>Glavna pekara</h3>
-        <p>Ulica hrvatskih velikana 6</p>
-      </div>
-      <div class="lokacija-kartica">
-        <h3>Pekara Lipik</h3>
-        <p>Udinska Ulica 11</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="tekst-u-krugu">
-  <svg viewBox="0 0 200 200" width="200" height="200">
-    <defs>
-      <path id="krug-putanja" d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0" />
-    </defs>
-    <text>
-      <textPath href="#krug-putanja" startOffset="0%">
-        PEKARA KAJZOGAJ • PEKARA KAJZOGAJ • 
-      </textPath>
-    </text>
+  <!-- Krivudava linija -->
+  <svg class="hero-line" viewBox="0 0 200 600" aria-hidden="true">
+    <path d="M10 40 C 80 120, 120 240, 40 340 S 110 500, 185 560" />
   </svg>
+
+  <!-- Lijevi info bar -->
+  <aside class="hero-side" aria-label="Informacije i društvene mreže">
+    <span class="side-label">
+      PON–PET&nbsp;&nbsp;09:00–16:00
+    </span>
+    <a class="side-link" href="#instagram">INSTAGRAM</a>
+    <a class="side-link" href="#facebook">FACEBOOK</a>
+  </aside>
+
+  <!-- Sadržaj -->
+  <div class="hero-content">
+    <h1 data-animate style="--delay:.5s;">MINI PEKARA</h1>
+    <p data-animate style="--delay:.8s;">Svježe iz pećnice, s ljubavlju pripremljeno</p>
+    <div class="hero-buttons" data-animate style="--delay:1.1s;">
+      <a href="#ponuda" class="btn-primary">Naša ponuda</a>
+      <a href="#lokacije" class="btn-secondary">Posjeti nas</a>
+    </div>
+  </div>
+</section>
+
+
+<section id="o-nama" class="about-dark decor">
+    <span class="bg-glow" aria-hidden="true"></span>
+  <div class="about-header">
+    <h2>O nama</h2>
+    <p>Od male kvartovske pekare do omiljenog mjesta za svježe kruhove, peciva i kolače.</p>
+  </div>
+
+  <div class="timeline-center">
+    <!-- ITEM -->
+    <div class="tl-item reveal">
+      <div class="tl-card tl-left">
+        <h3>2001 · Prvi koraci</h3>
+        <p>Otvorili smo prvu malu pekaru s peći na kamen i receptima naslijeđenim od bake.</p>
+        <img src="pics/pr.jpg" alt="Početci pekare" loading="lazy">
+      </div>
+      <div class="tl-year">2001</div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-card tl-right">
+        <h3>2008 · Prirodni kvas</h3>
+        <p>Pokrećemo vlastiti starter, uvodimo sourdough i širimo rustikalne kruhove.</p>
+        <img src="pics/timeline2.jpg" alt="Sourdough starter" loading="lazy">
+      </div>
+      <div class="tl-year">2008</div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-card tl-left">
+        <h3>2016 · Druga lokacija</h3>
+        <p>Otvaramo novu prodavaonicu i uvodimo doručak‑to‑go: kroasani, bageli i kave.</p>
+        <img src="pics/timeline3.jpg" alt="Nova lokacija" loading="lazy">
+      </div>
+      <div class="tl-year">2016</div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-card tl-right">
+        <h3>2023 · Lokalni sastojci</h3>
+        <p>Suradnja s OPG‑ovima i lokalnim mlinovima — svježina i sljedivost.</p>
+        <img src="pics/timeline4.jpg" alt="Lokalni sastojci" loading="lazy">
+      </div>
+      <div class="tl-year">2023</div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-card tl-left">
+        <h3>2025 · Danas</h3>
+        <p>Moderni procesi, tradicionalni okus. Svakodnevno svježe i s osmijehom.</p>
+        <img src="pics/timeline5.jpg" alt="Današnja pekara" loading="lazy">
+      </div>
+      <div class="tl-year">2025</div>
+    </div>
+  </div>
+</section>
+
+<section id="ponuda" class="offer-section">
+  <div class="section-header">
+    <h2>Naša ponuda</h2>
+    <p class="section-lead">Ručno, polako i s najboljim sastojcima — od kruha do slanih i slatkih zalogaja te posebnih narudžbi.</p>
+  </div>
+
+  <div class="offer-grid categories" role="list">
+    <!-- KRUH -->
+    <article class="offer-cat" role="listitem">
+      <header class="cat-head">
+        <span class="cat-icon" aria-hidden="true">
+          <!-- kruh ikona -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+            <path d="M5 8c0-3 3-5 7-5s7 2 7 5v8a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V8z"/>
+          </svg>
+        </span>
+        <h3>Kruh</h3>
+        <span class="cat-badge">svježe svakog jutra</span>
+      </header>
+      <p class="cat-lead">Dugo vođen kvas i pečenje na kamenu za hrskavu koricu i punu aromu.</p>
+      <ul class="cat-chips" aria-label="Primjeri">
+        <li>Rustikalni</li>
+        <li>Cjeloviti</li>
+        <li>Raženi</li>
+        <li>Kukuruzni</li>
+        <li>Sjemenski</li>
+        <li>Sourdough</li>
+      </ul>
+      <footer class="cat-foot">
+        <a href="#kontakt" class="cat-cta">Preorder do 9:00</a>
+      </footer>
+    </article>
+
+    <!-- SLATKO -->
+    <article class="offer-cat" role="listitem">
+      <header class="cat-head">
+        <span class="cat-icon" aria-hidden="true">
+          <!-- torta ikona -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+            <path d="M3 14h18v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5zm18-2H3V9a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v3zM9 6a2 2 0 1 1 4 0"/>
+          </svg>
+        </span>
+        <h3>Slatko</h3>
+        <span class="cat-badge alt">sezonski okusi</span>
+      </header>
+      <p class="cat-lead">Manje šećera, više okusa. Klasični recepti i moderne kreme.</p>
+      <ul class="cat-chips" aria-label="Primjeri">
+        <li>Krafne sourdough</li>
+        <li>Šnite pite</li>
+        <li>Brownie</li>
+        <li>Muffini</li>
+        <li>Kremaš</li>
+        <li>Voćni kolači</li>
+      </ul>
+      <footer class="cat-foot">
+        <a href="#kontakt" class="cat-cta">Pogledaj dnevnu vitrinu</a>
+      </footer>
+    </article>
+
+    <!-- SLANO -->
+    <article class="offer-cat" role="listitem">
+      <header class="cat-head">
+        <span class="cat-icon" aria-hidden="true">
+          <!-- perec ikona -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+            <path d="M12 7c3-3 8-1 8 3 0 3-3 6-8 9-5-3-8-6-8-9 0-4 5-6 8-3z"/>
+          </svg>
+        </span>
+        <h3>Slano</h3>
+        <span class="cat-badge">to-go</span>
+      </header>
+      <p class="cat-lead">Peciva i lisnata punjenja za pauzu ili catering.</p>
+      <ul class="cat-chips" aria-label="Primjeri">
+        <li>Kroasan maslac</li>
+        <li>Bagel</li>
+        <li>Focaccia</li>
+        <li>Pogačice sir</li>
+        <li>Štapići sezam</li>
+        <li>Mini sendviči</li>
+      </ul>
+      <footer class="cat-foot">
+        <a href="#kontakt" class="cat-cta">Naruči platu</a>
+      </footer>
+    </article>
+
+    <!-- PO NARUDŽBI -->
+    <article class="offer-cat" role="listitem">
+      <header class="cat-head">
+        <span class="cat-icon" aria-hidden="true">
+          <!-- zvjezdica ikona -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+            <path d="M12 2l2.9 6.6L22 9.3l-5 4.7 1.2 6.9L12 17l-6.2 3.9L7 14 2 9.3l7.1-.7L12 2z"/>
+          </svg>
+        </span>
+        <h3>Ponuda po narudžbi</h3>
+        <span class="cat-badge alt">event ready</span>
+      </header>
+      <p class="cat-lead">Za rođendane, domjenke i posebne režime (npr. bez glutena – uz najavu).</p>
+      <ul class="cat-chips" aria-label="Primjeri">
+        <li>Torte</li>
+        <li>Plate peciva</li>
+        <li>Kolačići (box)</li>
+        <li>Sezonske delicije</li>
+        <li>Bezglutenske opcije*</li>
+        <li>Personalizacije</li>
+      </ul>
+      <footer class="cat-foot">
+        <a href="#kontakt" class="cat-cta">Pošalji upit</a>
+      </footer>
+    </article>
+  </div>
+
+  <div class="offer-note">
+    <small>* Bezglutenski proizvodi rade se u odvojenom terminu. Pitaj nas za detalje.</small>
+  </div>
+</section>
+
+
+
+<!-- ========== ISTAKNUTO DANAS ========== -->
+<section id="istaknuto" class="today-strip">
+  <div class="today-head">
+    <h2>Istaknuto danas</h2>
+    <p class="muted">Svježe iz pećnice — dostupno do rasprodaje.</p>
+    <div class="today-timer" aria-live="polite">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="label">Nova tura za</span>
+      <span class="time" id="bakeCountdown">—:—</span>
+    </div>
+  </div>
+
+  <div class="today-grid">
+    <article class="today-card">
+      <img src="pics/lebac.jpg" alt="Rustikalni kruh — hrskava korica" loading="lazy">
+      <div class="tc-body">
+        <h3>Rustikalni kruh</h3>
+        <p>Kamen, prirodni kvas i dugo dizanje. Korica koja puca.</p>
+      </div>
+      <div class="tc-meta"><span class="badge">bestseller</span><span class="price">€3.20</span></div>
+    </article>
+
+    <article class="today-card">
+      <img src="pics/kroasanž.jpg" alt="Maslac kroasan — listan i zlatan" loading="lazy">
+      <div class="tc-body">
+        <h3>Kroasan maslac</h3>
+        <p>List po list. Maslac vrhunske kvalitete.</p>
+      </div>
+      <div class="tc-meta"><span class="badge alt">jutarnja tura</span><span class="price">€1.60</span></div>
+    </article>
+
+    <article class="today-card">
+      <img src="pics/bagel.jpg" alt="Bagel zlatne korice" loading="lazy">
+      <div class="tc-body">
+        <h3>Bagel</h3>
+        <p>Vani sjajan, iznutra sočan. Sendvič ready.</p>
+      </div>
+      <div class="tc-meta"><span class="badge">novo</span><span class="price">€1.40</span></div>
+    </article>
+
+    <article class="today-card">
+      <img src="pics/donut.jpg" alt="Sourdough krafna s glazurom" loading="lazy">
+      <div class="tc-body">
+        <h3>Sourdough krafna</h3>
+        <p>Lagano tijesto, sezonsko punjenje.</p>
+      </div>
+      <div class="tc-meta"><span class="badge alt">sezonski</span><span class="price">€2.10</span></div>
+    </article>
+  </div>
+</section>
+
+<section id="vrijednosti" class="values-section">
+  <div class="section-header">
+    <h2>Naše vrijednosti</h2>
+    <p class="section-lead">Četiri razloga zbog kojih nam se kupci vraćaju — iz dana u dan.</p>
+  </div>
+
+  <div class="values-icons">
+    <!-- 1 -->
+    <div class="v-feature">
+      <div class="v-circle">
+        <span>01</span>
+      </div>
+      <h3>Svježe svaki dan</h3>
+      <p>Pecivo izlazi iz pećnice tijekom dana. Ono što ne bismo ponijeli kući — ne nudimo ni vama.</p>
+      <ul>
+        <li>Više tura pečenja</li>
+        <li>Jasno označene satnice</li>
+      </ul>
+    </div>
+
+    <!-- 2 -->
+    <div class="v-feature">
+      <div class="v-circle">
+        <span>02</span>
+      </div>
+      <h3>Lokalni sastojci</h3>
+      <p>Surađujemo s OPG-ovima i mlinovima iz blizine: kratki lanci opskrbe, dugi okusi.</p>
+      <ul>
+        <li>Brašno iz susjedstva</li>
+        <li>Sezonsko voće</li>
+      </ul>
+    </div>
+
+    <!-- 3 -->
+    <div class="v-feature">
+      <div class="v-circle">
+        <span>03</span>
+      </div>
+      <h3>Ručna izrada</h3>
+      <p>Od vaganja do slaganja — radimo rukama. Svaki komad ima karakter i priču.</p>
+      <ul>
+        <li>Dugo tijesto, kratka lista sastojaka</li>
+        <li>Bez nepotrebnih aditiva</li>
+      </ul>
+    </div>
+
+    <!-- 4 -->
+    <div class="v-feature">
+      <div class="v-circle">
+        <span>04</span>
+      </div>
+      <h3>Osmijeh iza pulta</h3>
+      <p>Brza, topla i iskrena usluga. Zapamtit ćemo vašu kavu i omiljeni kruh.</p>
+      <ul>
+        <li>Brza linija za doručak</li>
+        <li>Prednaručivanje za događaje</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="stats-banner">
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-value">24+</div>
+      <div class="stat-label">Godine tradicije</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">35</div>
+      <div class="stat-label">Vrsta kruha i peciva</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">10k+</div>
+      <div class="stat-label">Zadovoljnih kupaca</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">50+</div>
+      <div class="stat-label">Događaja godišnje</div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="catering" class="kb-cat-section">
+  <div class="kb-cat-header">
+    <h2 class="kb-cat-title">Narudžbe za događaje</h2>
+    <p class="kb-cat-lead">Doručci za ured, proslave i manja druženja — složit ćemo pladnjeve po ukusu i veličini ekipe.</p>
+  </div>
+
+  <div class="kb-cat-grid">
+    <!-- 1) Jutarnji paket -->
+    <article class="kb-cat-card kb-cat-card--tile">
+      <div class="kb-cat-icon kb-cat-icon--lg" aria-hidden="true">
+        <svg viewBox="0 0 24 24" class="kb-cat-svg" width="32" height="32">
+          <path d="M4 10h16v7a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-7Z"/>
+        </svg>
+      </div>
+      <div class="kb-cat-content">
+        <h3 class="kb-cat-h3">Jutarnji paket</h3>
+        <p class="kb-cat-p">Kroasani, bageli i svježa kava — stižemo prije sastanka.</p>
+        <ul class="kb-cat-points">
+          <li>10–50 osoba</li>
+          <li>Vegetar opcije</li>
+          <li>Isporuka do 9:00</li>
+        </ul>
+        <a href="#kontakt" class="kb-cat-btn">Zatraži ponudu</a>
+      </div>
+    </article>
+
+    <!-- 2) Party mix -->
+    <article class="kb-cat-card kb-cat-card--tile">
+      <div class="kb-cat-icon kb-cat-icon--lg" aria-hidden="true">
+        <svg viewBox="0 0 24 24" class="kb-cat-svg" width="32" height="32">
+          <path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8Z"/>
+          <path d="M4 11c2.5-2 5.5-3 8-3s5.5 1 8 3"/>
+        </svg>
+      </div>
+      <div class="kb-cat-content">
+        <h3 class="kb-cat-h3">Party mix</h3>
+        <p class="kb-cat-p">Slatko & slano za ekipu — krafne, pite, focaccia, mini peciva.</p>
+        <ul class="kb-cat-points">
+          <li>15–80 osoba</li>
+          <li>Sezonske slastice</li>
+          <li>Personalizirane poruke</li>
+        </ul>
+        <a href="#kontakt" class="kb-cat-btn">Pošalji upit</a>
+      </div>
+    </article>
+
+    <!-- 3) Finger food -->
+    <article class="kb-cat-card kb-cat-card--tile">
+      <div class="kb-cat-icon kb-cat-icon--lg" aria-hidden="true">
+        <svg viewBox="0 0 24 24" class="kb-cat-svg" width="32" height="32">
+          <path d="M6 3h12v4H6z"/>
+          <path d="M4 7h16v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7Z"/>
+          <path d="M9 12h6"/>
+        </svg>
+      </div>
+      <div class="kb-cat-content">
+        <h3 class="kb-cat-h3">Finger food</h3>
+        <p class="kb-cat-p">Meetup, radionica ili izložba — jednostavno i ukusno.</p>
+        <ul class="kb-cat-points">
+          <li>10–40 osoba</li>
+          <li>Brza isporuka</li>
+          <li>Fokus na zalogaje</li>
+        </ul>
+        <a href="#kontakt" class="kb-cat-btn">Zatraži termin</a>
+      </div>
+    </article>
+  </div>
+
+  <div class="kb-cat-note">
+  </div>
+</section>
+
+
+
+
+<!-- ========== PROCES PEČENJA (sticky slike) ========== -->
+<section id="proces" class="process-section">
+  <div class="process-wrap">
+    <!-- Lijevo: sticky okvir sa složenim slikama -->
+    <div class="process-sticky" aria-hidden="true">
+      <!-- Svaka slika ima data-step kako bismo je uparili s tekst korakom -->
+      <img class="ps-img" data-step="1" src="pics/mljevenje.jpg" alt="" loading="lazy">
+      <img class="ps-img" data-step="2" src="pics/mjeanje.jpg" alt="" loading="lazy">
+      <img class="ps-img" data-step="3" src="pics/femr.jpg" alt="" loading="lazy">
+      <img class="ps-img" data-step="4" src="pics/pec.jpg" alt="" loading="lazy">
+    </div>
+
+    <!-- Desno: tekstualni koraci -->
+    <div class="process-steps">
+      <div class="p-step" data-step="1">
+        <span class="p-kicker">1/4</span>
+        <h3>Mljeveno lokalno</h3>
+        <p>Brašno nabavljamo od mlinova iz blizine. Kratki lanac opskrbe, stabilna kvaliteta.</p>
+        <ul>
+          <li>Sezonske mješavine</li>
+          <li>Stalna sljedivost</li>
+        </ul>
+      </div>
+
+      <div class="p-step" data-step="2">
+        <span class="p-kicker">2/4</span>
+        <h3>Mijesimo ručno</h3>
+        <p>Vaga, voda, sol i strpljenje. Svaki komad ima karakter jer ga radimo rukama.</p>
+        <ul>
+          <li>Kratka lista sastojaka</li>
+          <li>Bez nepotrebnih aditiva</li>
+        </ul>
+      </div>
+
+      <div class="p-step" data-step="3">
+        <span class="p-kicker">3/4</span>
+        <h3>Prirodna fermentacija</h3>
+        <p>Vlastiti starter i spora fermentacija daju pun okus i laganiju probavu.</p>
+        <ul>
+          <li>Duga hladna fermentacija</li>
+          <li>Stabilna mrvica</li>
+        </ul>
+      </div>
+
+      <div class="p-step" data-step="4">
+        <span class="p-kicker">4/4</span>
+        <h3>Pečemo na kamen</h3>
+        <p>Visoka toplina i para stvaraju onu koricu koja puca — svaki put.</p>
+        <ul>
+          <li>Konstantna temperatura</li>
+          <li>Više tura pečenja dnevno</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== LOKACIJA & RADNO VRIJEME ========== -->
+<section id="lokacija" class="loc-section">
+  <div class="loc-grid">
+        <div class="loc-info">
+      <h2>Lokacija & radno vrijeme</h2>
+      <p class="muted">Dođi po svježe — miris će te voditi.</p>
+
+      <div class="hours">
+        <div class="h-row">
+          <span class="h-day">Pon – Pet</span>
+          <span class="h-time">06:30 – 19:00</span>
+        </div>
+        <div class="h-row">
+          <span class="h-day">Subota</span>
+          <span class="h-time">07:00 – 14:00</span>
+        </div>
+        <div class="h-row">
+          <span class="h-day">Nedjelja</span>
+          <span class="h-time">Zatvoreno</span>
+        </div>
+      </div>
+
+      <div class="loc-contacts">
+        <a class="chip" href="tel:+38500000000" aria-label="Nazovi">📞 +385 00 000 000</a>
+        <a class="chip" href="mailto:info@pekara.hr" aria-label="Pošalji email">✉️ info@pekara.hr</a>
+        <a class="chip" href="https://instagram.com/" target="_blank" rel="noopener">🟣 Instagram</a>
+        <a class="chip" href="https://facebook.com/" target="_blank" rel="noopener">🔵 Facebook</a>
+      </div>
+
+      <a class="btn-outline" href="https://maps.google.com/?q=Pekara" target="_blank" rel="noopener">Upute do nas</a>
+    </div>
+    <div class="loc-map">
+      <!-- Zamijeni src s tvojim Google Maps embedom -->
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d174.97698214411685!2d17.193246300524336!3d45.43692486729624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476773f5aaa88add%3A0x86fbd44b0c1c6bdb!2sMini%20Pekara!5e0!3m2!1shr!2shr!4v1755650719346!5m2!1shr!2shr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+
+  </div>
+</section>
+
+
+<!-- ========== POZDRAV OD TIMA ========== -->
+<section id="pozdrav" class="hello-section">
+  <div class="hello-wrap">
+    <div class="hello-avatar" aria-hidden="true">
+      <!-- kružić kao “tim avatar” -->
+      <div class="bubble"></div>
+    </div>
+    <div class="hello-copy">
+      <h2>Hvala što dolazite k nama</h2>
+      <p>Pečemo jer volimo miris jutra i zvuk korice koja puca. Ako imate želju ili ideju — recite nam. Rado ćemo je ispeći zajedno.</p>
+      <p class="sign">— Vaša mini pekara</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="kontakt" class="contact-section">
+  <div class="contact-grid">
+    
+    <!-- Forma -->
+    <div class="contact-form">
+      <h2>Kontaktirajte nas</h2>
+      <p class="lead">Imate upit za catering ili posebnu narudžbu? Pošaljite nam detalje i javit ćemo se najbrže što možemo.</p>
+      
+      <form action="mailto:info@pekara.hr" method="post" enctype="text/plain">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ime">Ime i prezime *</label>
+            <input type="text" id="ime" name="ime" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="telefon">Telefon</label>
+            <input type="tel" id="telefon" name="telefon" placeholder="+385...">
+          </div>
+          <div class="form-group">
+            <label for="usluga">Vrsta usluge</label>
+            <select id="usluga" name="usluga">
+              <option value="">Odaberite...</option>
+              <option value="jutarnji">Jutarnji paket</option>
+              <option value="party">Party mix</option>
+              <option value="finger">Finger food</option>
+              <option value="ostalo">Ostalo</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="poruka">Poruka *</label>
+          <textarea id="poruka" name="poruka" rows="6" placeholder="Datum, broj osoba, željeni meni, alergeni..." required></textarea>
+        </div>
+
+        <!-- (Opcionalno) datoteka – npr. popis uzvanika/brief -->
+        <div class="form-group">
+          <label for="prilog">Prilog (PDF/JPG, do 10 MB)</label>
+          <input type="file" id="prilog" name="prilog" accept=".pdf,.jpg,.jpeg,.png">
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" id="privola" required>
+          <label for="privola">Prihvaćam obradu podataka radi odgovora na upit.</label>
+        </div>
+
+        <button type="submit" class="btn-full">Pošalji poruku</button>
+        <p class="form-note">Prosječno odgovaramo unutar <strong>2 sata</strong> tijekom radnog vremena.</p>
+      </form>
+    </div>
+    
+    <!-- Desno: korisne informacije umjesto “Nađite nas” -->
+    <aside class="contact-aside">
+      <div class="aside-block">
+        <h3>Brzi kanali</h3>
+        <div class="chip-row">
+          <a class="chip" href="tel:+38500000000">📞 Telefon</a>
+          <a class="chip" href="mailto:info@pekara.hr">✉️ Email</a>
+          <a class="chip" href="https://instagram.com/" target="_blank" rel="noopener">🟣 Instagram DM</a>
+          <a class="chip" href="https://wa.me/38500000000" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+        <p class="muted">Za hitne jutarnje narudžbe najbolje nazvati.</p>
+      </div>
+
+      <div class="aside-block">
+        <h3>Što nam napišite</h3>
+        <ul class="checklist">
+          <li><span>📅</span> Datum i okvirno vrijeme</li>
+          <li><span>👥</span> Broj osoba (raspon)</li>
+          <li><span>🍞</span> Tip hrane (slano/slatko/finger)</li>
+          <li><span>⚠️</span> Alergeni i preferencije</li>
+          <li><span>🚚</span> Dostava ili osobno preuzimanje</li>
+        </ul>
+      </div>
+
+      <div class="aside-block kpi">
+        <div class="kpi-badge">
+          <div class="kpi-value">~2h</div>
+          <div class="kpi-label">Vrijeme odgovora</div>
+        </div>
+        <div class="kpi-badge">
+          <div class="kpi-value">48h</div>
+          <div class="kpi-label">Veće narudžbe unaprijed</div>
+        </div>
+      </div>
+
+      <div class="aside-block note">
+        <p>Radimo s <strong>lokalnim sastojcima</strong>. Popis alergena dostupan je na upit. Za personalizirane poruke na proizvodima, napišite tekst u poruci.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="f-brand">
+      <a href="#top" class="logo">Mini Pekara</a>
+      <p class="tagline">Svježe. Lokalno. Iskreno.</p>
+      <div class="socials">
+        <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="sbtn">IG</a>
+        <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" class="sbtn">FB</a>
+        <a href="mailto:info@pekara.hr" aria-label="Email" class="sbtn">✉</a>
+      </div>
+    </div>
+
+    <nav class="f-nav" aria-label="Footer navigacija">
+      <h3>Navigacija</h3>
+      <ul>
+        <li><a href="#o-nama">O nama</a></li>
+        <li><a href="#ponuda">Ponuda</a></li>
+        <li><a href="#vrijednosti">Vrijednosti</a></li>
+        <li><a href="#istaknuto">Istaknuto danas</a></li>
+        <li><a href="#proces">Proces</a></li>
+        <li><a href="#lokacija">Lokacija</a></li>
+        <li><a href="#catering">Događaji</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <div class="f-hours">
+      <h3>Radno vrijeme</h3>
+      <ul class="hours-list">
+        <li><span>Pon – Pet</span><span>06:30 – 19:00</span></li>
+        <li><span>Subota</span><span>07:00 – 14:00</span></li>
+        <li><span>Nedjelja</span><span>Zatvoreno</span></li>
+      </ul>
+    </div>
+
+    <div class="f-contact">
+      <h3>Kontakt</h3>
+      <p><a href="tel:+38500000000">+385 00 000 000</a><br><a href="mailto:info@pekara.hr">info@pekara.hr</a></p>
+      <a class="btn-outline small" href="https://www.google.com/maps/place/Mini+Pekara/@45.4368438,17.1909095,17z/data=!3m1!4b1!4m6!3m5!1s0x476773f5aaa88add:0x86fbd44b0c1c6bdb!8m2!3d45.4368401!4d17.1934844!16s%2Fg%2F11fxb2k5d1?entry=ttu&g_ep=EgoyMDI1MDgxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Upute do nas</a>
+    </div>
+  </div>
+<div class="footer-bottom">
+  <p>© <span id="year"></span> Mini Pekara — Sva prava pridržana.</p>
+  <div class="footer-right">
+    <a href="#top" class="to-top" aria-label="Na vrh">↑</a>
+    <span class="madeby">Made by 
+      <a href="https://tvoja-link-kode.com" target="_blank" rel="noopener">KODE</a> 
+      <a href="https://tvoja-link-black.com" target="_blank" rel="noopener">BLACK</a>
+    </span>
+  </div>
 </div>
 
-<footer class="site-footer">
-  <div class="footer-content">
-    <div class="footer-section">
-      <h3>O nama</h3>
-      <p>Pečemo s ljubavlju – domaći proizvodi, svježi svaki dan.</p>
-    </div>
-    <div class="footer-section">
-      <h3>Kontakt</h3>
-      <p>Telefon: +385 91 123 4567<br>
-      Email: minipekarakaj@gmail.hr</p>
-    </div>
-    <div class="footer-section">
-      <h3>Lokacija</h3>
-      <p>HRVATSKIH VELIKANA 6<br>Pakrac, Hrvatska</p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2025 Pekara Domaće Dobrote. Sva prava pridržana.</p>
-  </div>
 </footer>
+
+
+
 
   <script src="main.js"></script>
 </body>

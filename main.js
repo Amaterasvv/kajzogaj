@@ -1,158 +1,217 @@
-function toggleMenu() {
-  document.querySelector('.nav-left').classList.toggle('active');
-  document.querySelector('.nav-right').classList.toggle('active');
-  document.querySelector('.menu-toggle').classList.toggle('open');
-}
+  // Oznaci da je JS aktivan (za CSS .js selektore)
+  document.documentElement.classList.add('js');
 
+  const nav    = document.querySelector('.nav');
+  const toggle = document.querySelector('.nav__toggle');
+  const menu   = document.getElementById('nav-menu');
 
-const sadrzaji = {
-  kruh: {
-    html: `
-      <div class="kategorije-kartica">
-        <img src="pics/rye-sliced-bread-table.jpg" alt="Kruh">
-        <div class="kategorije-opis">
-          <h2>Domaći Kruh</h2>
-          <p>Ručno rađen, pečen na kamenoj ploči – naš kruh odiše tradicijom i savršen je dodatak svakom obroku.</p>
-        </div>
-      </div>
-    `,
-    background: 'url(pics/bg-kru.jpg)'
-  },
-
-  peciva: {
-    html: `
-      <div class="kategorije-kartica">
-        <img src="pics/peciva.jpg" alt="Peciva">
-        <div class="kategorije-opis">
-          <h2>Svježa Peciva</h2>
-          <p>Topla i mirisna peciva, savršena uz kavu ili čaj. Idealna za doručak ili brzu užinu kroz dan.</p>
-        </div>
-      </div>
-    `,
-    background: 'url(pics/bg-peciva.jpg)'
-  },
-
-  burek: {
-    html: `
-      <div class="kategorije-kartica">
-        <img src="pics/burek.jpeg" alt="Burek">
-        <div class="kategorije-opis">
-          <h2>Burek</h2>
-          <p>Sočan, svježe pečen burek s mesom, sirom ili povrćem. Tradicionalni okus Balkana u modernoj izvedbi.</p>
-        </div>
-      </div>
-    `,
-    background: 'url(pics/bg-burek.jpg)'
-  },
-
-  sendvici: {
-    html: `
-      <div class="kategorije-kartica">
-        <img src="pics/sendvic.jpg" alt="Sendviči">
-        <div class="kategorije-opis">
-          <h2>Sendviči</h2>
-          <p>Bogati, svježe pripremljeni sendviči – savršen spoj domaćeg kruha, kvalitetnih namaza i punjenja.</p>
-        </div>
-      </div>
-    `,
-    background: 'url(pics/bg-sendvici.jpg)'
-  },
-
-  slatko: {
-    html: `
-      <div class="kategorije-kartica">
-        <img src="pics/slatko.jpg" alt="Slatko">
-        <div class="kategorije-opis">
-          <h2>Slatki Program</h2>
-          <p>Od kremastih kolača do laganih pita – svaki desert izrađen s ljubavlju, idealan za trenutke uživanja.</p>
-        </div>
-      </div>
-    `,
-    background: 'url(pics/bg-slatko.jpg)'
-  },
-
-  kebab: {
-    html: `
-      <div class="kategorije-kartica">
-        <img src="pics/kebab.jpg" alt="Kebab">
-        <div class="kategorije-opis">
-          <h2>Kebab</h2>
-          <p>Sočno meso, svježe povrće i domaća lepinja – naš kebab je brz, ukusan i uvijek svježe pripremljen.</p>
-        </div>
-      </div>
-    `,
-    background: 'url(pics/bg-kebab.jpg)'
-  }
-};
-
-function prikaziKategoriju(ime) {
-  const podatak = sadrzaji[ime];
-  const sadrzaj = document.getElementById("kategorija");
-  const sekcija = document.querySelector(".kategorije");
-
-  // Promijeni HTML sadržaj
-  sadrzaj.classList.remove("show");
-  setTimeout(() => {
-    sadrzaj.innerHTML = podatak.html;
-    sadrzaj.classList.add("show");
-  }, 150);
-
-  // Promijeni pozadinu sekcije
-  sekcija.style.backgroundImage = podatak.background;
-
-  // Pomicanje markera
-  const dugmad = document.querySelectorAll(".kategorije-lista button");
-  const marker = document.getElementById("marker");
- dugmad.forEach((btn) => {
-  btn.classList.remove("active");
-});
-
-const aktivnoDugme = document.querySelector(`.kategorije-lista button[onclick*="${ime}"]`);
-if (aktivnoDugme) {
-  aktivnoDugme.classList.add("active");
-  marker.style.top = aktivnoDugme.offsetTop + "px";
-}
-}
-
-// Inicijalno prikazati "kruh"
-window.addEventListener("DOMContentLoaded", () => {
-  prikaziKategoriju("kruh");
-});
-
-// Fade-in za cijelu sekciju
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
+  const closeMenu = () => {
+    if (nav.classList.contains('nav--open')) {
+      nav.classList.remove('nav--open');
+      toggle.setAttribute('aria-expanded', 'false');
     }
+  };
+
+  // Toggle otvaranje/zatvaranje
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = nav.classList.toggle('nav--open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
-}, {
-  threshold: 0.1
-});
 
-document.querySelectorAll('.animate-fade-in').forEach(el => observer.observe(el));
+  // Zatvori na klik linka
+  menu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => closeMenu());
+  });
 
-function otvoriLightbox(src) {
-  document.getElementById("lightbox-img").src = src;
-  document.getElementById("lightbox").classList.add("show");
-}
+  // Zatvori na klik izvan menija
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target)) closeMenu();
+  });
 
-function zatvoriLightbox() {
-  document.getElementById("lightbox").classList.remove("show");
-}
+  // ESC za zatvaranje
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
 
-let trenutačna = 0;
-const slike = document.querySelectorAll("#galerija-slider .galerija-item");
-const galerija = document.querySelector("#galerija-slider");
+  // (Opcionalno) reset kad odeš na desktop
+  const mq = window.matchMedia('(min-width: 769px)');
+  mq.addEventListener('change', (ev) => { if (ev.matches) closeMenu(); });
 
-function rotirajGaleriju() {
-  slike.forEach(el => el.classList.remove("active"));
-  slike[trenutačna].classList.add("active");
-  trenutačna = (trenutačna + 1) % slike.length;
-}
 
-if (slike.length > 0) {
-  galerija.style.position = "relative";
-  rotirajGaleriju(); // Prikaži prvu sliku
-  setInterval(rotirajGaleriju, 4000); // Rotiraj slike
-}
+
+
+
+  
+
+  // Hero ready – pokreni samo ako postoji
+  (function(){
+    const hero = document.querySelector('.hero');
+    if (hero) setTimeout(() => hero.classList.add('is-ready'), 120);
+  })();
+
+  // (Opcionalno) Reveal za kartice ponude – pokreni samo ako postoje
+  (function(){
+    const offerCards = document.querySelectorAll('.offer-card');
+    if (offerCards.length) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(en => {
+          if (en.isIntersecting) {
+            en.target.style.willChange = 'transform, opacity';
+            en.target.classList.remove('is-hidden-initial');
+            io.unobserve(en.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      offerCards.forEach(c => {
+        c.classList.add('is-hidden-initial');
+        io.observe(c);
+      });
+    }
+  })();
+
+  // Timeline reveal – ovo ti je bitno
+  (function(){
+    const items = document.querySelectorAll('#o-nama .reveal');
+    if (!items.length) return;
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+        if(en.isIntersecting){
+          en.target.classList.add('is-visible');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(el=>io.observe(el));
+  })();
+
+
+    (function(){
+    const root = document.querySelector('#o-nama.about-dark.decor');
+    if(!root) return;
+    const left = root.querySelector(':scope::before'); // pseudo se ne hvata JS-om
+    // zato radimo suptilan parallax na cijelim dekor blokovima preko CSS varijabli:
+    root.style.setProperty('--pxL', '0px');
+    root.style.setProperty('--pxR', '0px');
+    // koristimo translate na ::before/::after kroz filter drop-shadow? — lakše: na glow
+    const glow = root.querySelector('.bg-glow');
+    let ticking=false;
+    window.addEventListener('scroll', ()=>{
+      if(ticking) return; ticking=true;
+      requestAnimationFrame(()=>{
+        const y = window.scrollY || 0;
+        // pomakni glow elemente
+        glow.style.transform = `translateY(${y*0.05}px)`;
+        ticking=false;
+      });
+    }, {passive:true});
+  })();
+
+
+ (function(){
+      const buttons = document.querySelectorAll('.offer-section .filter-btn');
+    const cards = document.querySelectorAll('.offer-section .offer-card');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+
+        cards.forEach(card => {
+          const cat = card.getAttribute('data-cat');
+          const show = (f === 'all') || (cat === f);
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+  })();
+
+
+
+  (function(){
+  const el = document.getElementById('bakeCountdown');
+  if(!el) return;
+
+  // Termin ture pečenja (24h format) – prilagodi
+  const bakeSlots = ["06:30","11:00","15:00","18:00"];
+
+  function nextSlot(){
+    const now = new Date();
+    const today = now.toISOString().slice(0,10);
+    for(const t of bakeSlots){
+      const dt = new Date(`${today}T${t}:00`);
+      if(dt > now) return dt;
+    }
+    // ako su svi prošli, uzmi prvi sutra
+    const first = new Date(`${today}T${bakeSlots[0]}:00`);
+    first.setDate(first.getDate() + 1);
+    return first;
+  }
+
+  function tick(){
+    const target = nextSlot();
+    const now = new Date();
+    let diff = Math.max(0, target - now);
+    const h = Math.floor(diff / (1000*60*60));
+    diff -= h * 3600000;
+    const m = Math.floor(diff / (1000*60));
+    diff -= m * 60000;
+    const s = Math.floor(diff / 1000);
+    el.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+
+
+(function(){
+  const imgs = Array.from(document.querySelectorAll('.process-sticky .ps-img'));
+  if (imgs.length < 2) return;
+
+  let i = 0, timer = null;
+  const delay = 3500; // ms između slika (promijeni po želji)
+
+  function show(n){
+    imgs.forEach((im, idx) => im.classList.toggle('active', idx === n));
+  }
+
+  function start(){
+    if (timer) return;
+    timer = setInterval(() => {
+      i = (i + 1) % imgs.length;
+      show(i);
+    }, delay);
+  }
+
+  function stop(){
+    clearInterval(timer);
+    timer = null;
+  }
+
+  // pokreni samo kad je sekcija na ekranu (štedi CPU)
+  const section = document.querySelector('.process-section');
+  if (section && 'IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => e.isIntersecting ? start() : stop());
+    }, { threshold: 0.25 });
+    obs.observe(section);
+  } else {
+    start();
+  }
+
+  // pauza na hover preko sticky okvira
+  const sticky = document.querySelector('.process-sticky');
+  if (sticky) {
+    sticky.addEventListener('mouseenter', stop);
+    sticky.addEventListener('mouseleave', start);
+  }
+
+  // prva slika vidljiva
+  show(0);
+  })();
+
+  const y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
